@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="AirLetters: An Open Video Dataset of Characters Drawn in the Air">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AirLetters</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✉️</text></svg>">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DHVEPP2GQR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-DHVEPP2GQR');
+  </script>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./assets/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./assets/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./assets/css/nerfies_general.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./assets/js/fontawesome.all.min.js"></script>
+  <script src="./assets/js/bulma-carousel.min.js"></script>
+  <script src="./assets/js/bulma-slider.min.js"></script>
+  <script src="./assets/js/nerfies_index.js"></script>
+  <script src="./assets/js/nerfies_comparision.js"></script>
+  <style>
+    h1 img { width: 50px; height: auto; vertical-align: middle; }
+    table { width: 100%; border-collapse: collapse; margin: 20px 0; font-family: system-ui, -apple-system, sans-serif; }
+    th, td { padding: 12px; text-align: left; }
+    th { background-color: #f5f5f5; font-weight: 600; border-bottom: 2px solid #ddd; }
+    tr:hover { background-color: #f0f0f0; }
+    .section-header { background-color: #e0e0e0; font-weight: bold; border-bottom: 1px solid #ddd; border-top: 1px solid #ddd; }
+    .subsection { padding-left: 24px; }
+    .paper-preview-section { background-color: #fafafa; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .paper-preview-section .links a { transition: all 0.3s ease; }
+    .paper-preview-section .links a:hover { color: #209cee !important; transform: translateX(5px); }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"><span>&#9993;&#xFE0F;</span>AirLetters<span>&#128168;&#58;</span> An Open Video Dataset of Characters Drawn in the Air</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://www.cs.toronto.edu/~rishit">Rishit Dagli</a><sup>1,2</sup>, <a href="https://scholar.google.ca/citations?user=OY4_O9UAAAAJ&hl=en">Guillaume Berger</a><sup>1</sup>, <a href="https://joaanna.github.io/">Joanna Materzynska</a><sup>3</sup>, <a href="https://scholar.google.com/citations?user=eXWO8nwAAAAJ&hl=en">Ingo Bax</a><sup>1</sup>, <a href="http://www.iro.umontreal.ca/~memisevr/">Roland Memisevic</a><sup>1</sup></span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup> Qualcomm AI Research <sup>*</sup>, <sup>2</sup> University of Toronto, <sup>3</sup> MIT<br>
+    <sup>*</sup> Qualcomm AI Research is an initiative of Qualcomm Technologies, Inc.<br>
+    <span style="color: #3273dc;"><a href="https://hands-workshop.org/workshop2024.html">HANDS Workshop, ECCV 2024</a></span></span>
+          </div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                  <a href="./assets/paper.pdf" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+<span class="link-block">
+                  <a href="https://arxiv.org/abs/2410.02921" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+<span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark" disabled style="pointer-events: none; opacity: 0.5;">
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <span>Code (coming soon)</span>
+                  </a>
+                </span>
+<span class="link-block">
+                  <a href="https://www.qualcomm.com/developer/software/airletters-dataset" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-database"></i></span>
+                    <span>Data</span>
+                  </a>
+                </span>
+<span class="link-block">
+                  <a href="https://huggingface.co/spaces/rishitdagli/airletters-leaderboard" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-trophy"></i></span>
+                    <span>Leaderboard</span>
+                  </a>
+                </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content">
+<div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+    <div class="notification is-light" style="background-color: #f0f8ff; border-left: 4px solid #3273dc;">
+      <p style="font-size: 1.1rem; color: #363636;">
+        <span class="dnerf">AirLetters</span> is a new video dataset consisting of real-world videos of human-generated, articulated motions.
+      </p>
+    </div>
+    <video poster="" id="steve" autoplay="" muted="" loop="" playsinline="" style="margin: 2rem auto 0; display: block; max-width: 100%; height: auto;">
+      <source src="./assets/img/airletters/con_video.mp4" type="video/mp4"></source>
+    </video>
+  </div>
+</div>
+
+<div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+        <h2>Abstract</h2>
+        <div class="content has-text-justified">
+We introduce AirLetters, a new video dataset consisting of real-world videos of human-generated, articulated motions. Specifically, our dataset requires a vision model to predict letters that humans draw in the air. Unlike existing video datasets, accurate classification predictions for AirLetters rely critically on discerning motion patterns and on integrating long-range information in the video over time. An extensive evaluation of state-of-the-art image and video understanding models on AirLetters shows that these methods perform poorly and fall far behind a human baseline. Our work shows that, despite recent progress in end-to-end video understanding, accurate representations of complex articulated motions – a task that is trivial for humans – remains an open problem for end-to-end learning.
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<h2 id="motivation">Motivation</h2>
+
+<ul>
+  <li>We highlight a significant gap in current end-to-end video understanding and activity recognition methods: all models, especially large vision language models, perform well below human evaluation results. Human evaluation achieves near-perfect accuracy, while the task is challenging for all tested models. Unlike existing video datasets, accurate video understanding on our dataset requires detailed understanding of motion in the video and the integration of long-range temporal information across the entire video.</li>
+  <li>This dataset requires models to attend through the entire video to perform well, and increasing the number of frames that models attend to significantly increases their performance.</li>
+  <li>We show that classes such as the digits “0”, “1”, and “2” are particularly challenging, as they are easily confused with each other. In contrast, the contrast classes “Doing Nothing” and “Doing Other Things”, are more easily recognized which demonstrates the challenging nature of understanding precise motions for video understanding models.</li>
+</ul>
+
+<h2 id="contents">Dataset Contents</h2>
+
+<p>We focus on manual articulations of each letter of the Latin alphabet as well as numeric digits. This amounts to 36 primary gesture classes, for which recognition requires temporal and spatial analysis of the video. The dataset also includes two contrast classes designed to refine the sensitivity and specificity of recognition systems trained on our dataset. The “Doing Nothing” class includes videos of individuals in non-active states, such as sitting or standing still, to represent periods of inactivity within human-computer interactions, and the “Doing Other Things” class consists of clips capturing miscellaneous, non-communicative movements such as adjusting position or random hand movements.</p>
+
+<div class="content has-text-justified">
+  <img src="./assets/img/airletters/air-letter-crowd-workers.jpg" style="max-width: 70%; margin: 0 auto;">
+  <p>Figure: <b>Diversity in our Dataset.</b> Each of the images is taken from a randomly sampled video from our dataset. Our dataset has a large variance in the appearance of subjects, background, occlusion, and lighting conditions in the videos.</p>
+</div>
+
+<p>Our dataset has videos with precise articulated motion across many different frames instead of many other dataset which only need 1 frame or 2-4 frames to understand the video.</p>
+
+<div class="content has-text-justified">
+  <img src="./assets/img/airletters/variation.png" style="max-width: 70%; margin: 0 auto;">
+  <p>Figure: <b>Challenges due to inter-class similarities and intra-class diversity.</b> We show some examples of drawing the letter “B” and the digit of “3”, where differentiating both of these classes also requires understanding depth and velocity of relative motion to understand if the individual intended to draw a vertical line (for “B”) or only meant to place their hands in position (for “3”). Underneath, we show examples of variability in drawing the letter “Y”. For example, in one way version of drawing the letter “Y”, only the last few frames show a stroke that distinguishes it from the letter “X”.</p>
+</div>
+
+<p>Choosing a few key frames in our dataset does not help in understanding the video, and the entire video needs to be considered to understand the motion.</p>
+
+<div class="content has-text-justified">
+  <img src="./assets/img/airletters/scaling.png" style="max-width: 70%; margin: 0 auto;">
+  <p>Figure: <b>Scaling Training Frames.</b> Performance of models across different numbers of training frames. The Pareto Frontier is represented by a black curve. Note that this dataset requires models to attend through the entire video to perform well, and increasing the number of frames that models attend to significantly increases their performance.</p>
+</div>
+
+<h2 id="stats">Dataset Statistics</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Statistic</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Total Statistics -->
+        <tr class="section-header">
+            <td colspan="2">Total Statistics</td>
+        </tr>
+        <tr>
+<td class="subsection">Videos</td>
+<td>161,652</td>
+</tr>
+<tr>
+<td class="subsection" style="padding-left: 36px;">Training Split</td>
+<td>128,745</td>
+</tr>
+<tr>
+<td class="subsection" style="padding-left: 36px;">Validation Split</td>
+<td>16,480</td>
+</tr>
+<tr>
+<td class="subsection" style="padding-left: 36px;">Test Split</td>
+<td>16,427</td>
+</tr>
+        <tr>
+<td class="subsection">Classes</td>
+<td>38</td>
+</tr>
+        <tr>
+<td class="subsection">Actors</td>
+<td>1,781</td>
+</tr>
+        <tr>
+<td class="subsection">Frames</td>
+<td>40,142,100</td>
+</tr>
+        
+        <!-- Median Statistics -->
+        <tr class="section-header">
+            <td colspan="2">Median Statistics (with Standard Deviation)</td>
+        </tr>
+        <tr>
+<td class="subsection">Duration</td>
+<td>2.93 (±0.13)</td>
+</tr>
+        <tr>
+<td class="subsection">FPS</td>
+<td>30.0 (±0.0)</td>
+</tr>
+        <tr>
+<td class="subsection">Videos per Class (×10³)</td>
+<td>4.04 (±1.31)</td>
+</tr>
+        <tr>
+<td class="subsection">Videos per Actor</td>
+<td>40.0 (±99.29)</td>
+</tr>
+    </tbody>
+</table>
+
+<h2 id="leaderboard">Leaderboard</h2>
+
+<p style="text-align: center; color: #7a7a7a; margin-bottom: 1rem;">
+  Classification accuracy of image models, video models, and (large) vision language models on <span class="dnerf">AirLetters</span>. Click column headers to sort.
+</p>
+
+<div style="text-align: center; margin-bottom: 2rem;">
+  <a href="https://huggingface.co/spaces/rishitdagli/airletters-leaderboard" target="_blank" class="button is-small is-info" rel="external nofollow noopener">
+    <span class="icon">
+      <i class="fas fa-trophy"></i>
+    </span>
+    <span>Submit to the leaderboard</span>
+  </a>
+</div>
+
+<div class="table-container">
+  <table id="leaderboard-table" class="table is-striped is-hoverable is-fullwidth">
+    <thead>
+      <tr class="has-background-info-light">
+        <th onclick="sortLeaderboard(0)">Method <span class="icon"><i class="fas fa-sort"></i></span>
+</th>
+        <th onclick="sortLeaderboard(1)">Type <span class="icon"><i class="fas fa-sort"></i></span>
+</th>
+        <th onclick="sortLeaderboard(2)">Top-1 Accuracy ↑ <span class="icon"><i class="fas fa-sort"></i></span>
+</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>ViT-B/16</td>
+<td>Image</td>
+<td>7.49</td>
+</tr>
+      <tr>
+<td>MaxViT-T</td>
+<td>Image</td>
+<td>7.56</td>
+</tr>
+      <tr>
+<td>ResNet-200</td>
+<td>Image</td>
+<td>11.44</td>
+</tr>
+      <tr>
+<td>ResNeXt-101</td>
+<td>Image</td>
+<td>13.09</td>
+</tr>
+      <tr>
+<td>SE-ResNeXt-26</td>
+<td>Image</td>
+<td>13.29</td>
+</tr>
+      <tr>
+<td>ResNet-50</td>
+<td>Image</td>
+<td>13.87</td>
+</tr>
+      <tr>
+<td>VideoMAE (16)</td>
+<td>Video</td>
+<td>57.96</td>
+</tr>
+      <tr>
+<td>ResNet-101 + LSTM</td>
+<td>Video</td>
+<td>58.45</td>
+</tr>
+      <tr>
+<td>ResNet-50 + LSTM</td>
+<td>Video</td>
+<td>63.24</td>
+</tr>
+      <tr>
+<td>ResNeXt-152 3D</td>
+<td>Video</td>
+<td>65.77</td>
+</tr>
+      <tr>
+<td>Strided Inflated EfficientNet 3D</td>
+<td>Video</td>
+<td>65.97</td>
+</tr>
+      <tr>
+<td>ResNeXt-50 3D</td>
+<td>Video</td>
+<td>66.54</td>
+</tr>
+      <tr>
+<td>ResNeXt-101 3D</td>
+<td>Video</td>
+<td>69.74</td>
+</tr>
+      <tr>
+<td><strong>ResNeXt-200 3D</strong></td>
+<td>Video</td>
+<td><b>71.20</b></td>
+</tr>
+      <tr>
+<td>Video-LLaVA (w/o contrast class)</td>
+<td>VLM</td>
+<td>2.53</td>
+</tr>
+      <tr>
+<td>VideoLLaMA2 (w/o contrast class)</td>
+<td>VLM</td>
+<td>2.47</td>
+</tr>
+      <tr>
+<td>Video-LLaVA</td>
+<td>VLM</td>
+<td>7.29</td>
+</tr>
+      <tr>
+<td>VideoLLaMA2</td>
+<td>VLM</td>
+<td>7.58</td>
+</tr>
+      <tr>
+<td>Human Performance (10 videos/class)</td>
+<td>Human</td>
+<td>96.67</td>
+</tr>
+    </tbody>
+  </table>
+</div>
+
+<p class="has-text-centered mt-2">Overall results of different models on the <span class="dnerf">AirLetters</span> leaderboard. The <b style="color: #209cee;">best-performing model</b> is in-bold. Note that the task is straightforward for humans but challenging for existing models.</p>
+
+<script>
+  function sortLeaderboard(n) {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("leaderboard-table");
+    switching = true;
+    dir = "asc";
+
+    while (switching) {
+      switching = false;
+      rows = table.rows;
+
+      for (i = 1; i < (rows.length - 1); i++) {
+        shouldSwitch = false;
+        x = rows[i].getElementsByTagName("TD")[n];
+        y = rows[i + 1].getElementsByTagName("TD")[n];
+
+        if (dir == "asc") {
+          if (n == 2) {
+            if (parseFloat(x.innerText) > parseFloat(y.innerText)) {
+              shouldSwitch = true;
+              break;
+            }
+          } else {
+            if (x.innerText.toLowerCase() > y.innerText.toLowerCase()) {
+              shouldSwitch = true;
+              break;
+            }
+          }
+        } else if (dir == "desc") {
+          if (n == 2) {
+            if (parseFloat(x.innerText) < parseFloat(y.innerText)) {
+              shouldSwitch = true;
+              break;
+            }
+          } else {
+            if (x.innerText.toLowerCase() < y.innerText.toLowerCase()) {
+              shouldSwitch = true;
+              break;
+            }
+          }
+        }
+      }
+
+      if (shouldSwitch) {
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        switchcount++;
+      } else {
+        if (switchcount == 0 && dir == "asc") {
+          dir = "desc";
+          switching = true;
+        }
+      }
+    }
+
+    var icons = table.querySelectorAll("thead th span.icon");
+    for (i = 0; i < icons.length; i++) {
+      icons[i].innerHTML = '<i class="fas fa-sort"></i>';
+    }
+
+    var icon = table.rows[0].getElementsByTagName("TH")[n].querySelector("span.icon");
+    if (dir == "desc") {
+      icon.innerHTML = '<i class="fas fa-sort-down"></i>';
+    } else {
+      icon.innerHTML = '<i class="fas fa-sort-up"></i>';
+    }
+  }
+</script>
+
+<style>
+  #leaderboard-table th {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  #leaderboard-table th:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  #leaderboard-table b {
+    font-weight: bold;
+    color: #209cee;
+  }
+
+  #leaderboard-table u {
+    text-decoration: underline;
+    color: #3273dc;
+  }
+
+  .table-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .table {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .table th, .table td {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .paper-preview-section {
+    background-color: #fafafa;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .paper-preview-section .links a {
+    transition: all 0.3s ease;
+  }
+
+  .paper-preview-section .links a:hover {
+    color: #209cee !important;
+    transform: translateX(5px);
+  }
+</style>
+
+<h2 id="paper">Paper</h2>
+
+<div class="columns is-centered">
+  <div class="column is-10">
+    <div class="paper-preview-section">
+      <div class="columns is-vcentered">
+        <div class="column is-5" style="padding-right: 2.5rem;">
+          <img src="./assets/img/airletters/paper_preview.png" alt="Paper thumbnail" class="image" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 100%;">
+        </div>
+        <div class="column is-7" style="padding-left: 3rem;">
+          <h2 class="title is-5 mb-2">AirLetters: An Open Video Dataset of Characters Drawn in the Air</h2>
+          <div class="content has-text-justified" style="font-size: 0.95rem;">
+            <p class="author-list mb-1" style="color: #4a4a4a;">
+              <strong>Rishit Dagli</strong>,
+              <strong>Guillaume Berger</strong>,
+              <strong>Joanna Materzynska</strong>,
+              <strong>Ingo Bax</strong>,
+              <strong>Roland Memisevic</strong>
+            </p>
+            <p class="mb-3" style="color: #7a7a7a;"><em>Qualcomm AI Research, University of Toronto, MIT</em></p>
+            <div class="links" style="font-size: 0.9rem; display: flex; flex-wrap: wrap; gap: 1rem;">
+              <a href="./assets/paper.pdf" target="_blank" style="color: #3273dc; text-decoration: none; display: flex; align-items: center;">
+                <i class="fas fa-file-pdf" style="margin-right: 0.5rem;"></i>
+                Paper
+              </a>
+              <a href="https://arxiv.org/abs/2410.02921" target="_blank" style="color: #3273dc; text-decoration: none; display: flex; align-items: center;" rel="external nofollow noopener">
+                <i class="ai ai-arxiv" style="margin-right: 0.5rem;"></i>
+                arXiv version
+              </a>
+              <a href="#citation" style="color: #3273dc; text-decoration: none; display: flex; align-items: center;">
+                <i class="fas fa-quote-right" style="margin-right: 0.5rem;"></i>
+                BibTeX
+              </a>
+              <a href="#" style="color: #7a7a7a; text-decoration: none; display: flex; align-items: center; pointer-events: none;">
+                <i class="fab fa-github" style="margin-right: 0.5rem;"></i>
+                Code
+              </a>
+              <a href="https://www.qualcomm.com/developer/software/airletters-dataset" target="_blank" style="color: #3273dc; text-decoration: none; display: flex; align-items: center;" rel="external nofollow noopener">
+                <i class="fas fa-database" style="margin-right: 0.5rem;"></i>
+                Data
+              </a>
+              <a href="https://huggingface.co/spaces/rishitdagli/airletters-leaderboard" target="_blank" style="color: #3273dc; text-decoration: none; display: flex; align-items: center;" rel="external nofollow noopener">
+                <i class="fas fa-trophy" style="margin-right: 0.5rem;"></i>
+                Leaderboard
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 id="citation">Citation</h2>
+
+<div style="position: relative;">
+  <pre><code id="citationCode">
+@InProceedings{dagliairletters,
+author="Dagli, Rishit and Berger, Guillaume and Materzynska, Joanna and Bax, Ingo and Memisevic, Roland",
+title="AirLetters: An Open Video Dataset of Characters Drawn in the Air",
+booktitle="Computer Vision -- ECCV 2024 Workshops",
+year="2025",
+publisher="Springer Nature Switzerland",
+address="Cham",
+pages="1--32",
+isbn="978-3-031-91578-9"
+}</code></pre>
+  <button class="button is-small is-dark" onclick="copyCitation()" style="position: absolute; top: 10px; right: 10px;">
+    <span class="icon">
+      <i class="fas fa-copy"></i>
+    </span>
+  </button>
+</div>
+
+<script>
+  function copyCitation() {
+    var citationCode = document.getElementById("citationCode").innerText;
+    navigator.clipboard.writeText(citationCode);
+  }
+</script>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="./assets/paper.pdf"><i class="fas fa-file-pdf"></i></a>
+      <a class="icon-link" href="https://github.com/Rishit-dagli" class="external-link"><i class="fab fa-github"></i></a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a>.</p>
+          <p>This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
