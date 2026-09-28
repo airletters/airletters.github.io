@@ -1,11 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="description" content="AirLetters: An Open Video Dataset of Characters Drawn in the Air">
-  <meta name="keywords" content="">
+  <meta name="keywords" content="AirLetters, video dataset, articulated motion, gesture recognition, video understanding, computer vision">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AirLetters</title>
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://airletters.github.io/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AirLetters: An Open Video Dataset of Characters Drawn in the Air">
+  <meta property="og:description" content="A large real-world video dataset for recognizing letters and digits drawn in the air through articulated motion.">
+  <meta property="og:url" content="https://airletters.github.io/">
+  <meta property="og:image" content="https://airletters.github.io/assets/img/airletters/air-letter-crowd-workers.jpg">
+  <meta property="og:image:alt" content="Examples of participants and environments in the AirLetters dataset">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AirLetters: An Open Video Dataset of Characters Drawn in the Air">
+  <meta name="twitter:description" content="A large real-world video dataset for recognizing letters and digits drawn in the air through articulated motion.">
+  <meta name="twitter:image" content="https://airletters.github.io/assets/img/airletters/air-letter-crowd-workers.jpg">
+  <meta name="citation_title" content="AirLetters: An Open Video Dataset of Characters Drawn in the Air">
+  <meta name="citation_author" content="Dagli, Rishit">
+  <meta name="citation_author" content="Berger, Guillaume">
+  <meta name="citation_author" content="Materzynska, Joanna">
+  <meta name="citation_author" content="Bax, Ingo">
+  <meta name="citation_author" content="Memisevic, Roland">
+  <meta name="citation_publication_date" content="2025">
+  <meta name="citation_conference_title" content="Computer Vision -- ECCV 2024 Workshops">
+  <meta name="citation_pdf_url" content="https://link.springer.com/content/pdf/10.1007/978-3-031-91578-9_1.pdf">
+  <meta name="citation_arxiv_id" content="2410.02921">
+  <title>AirLetters: An Open Video Dataset of Characters Drawn in the Air</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✉️</text></svg>">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HYPRCXLT70"></script>
@@ -19,7 +41,6 @@
   <link rel="stylesheet" href="./assets/css/bulma.min.css">
   <link rel="stylesheet" href="./assets/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./assets/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./assets/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./assets/css/nerfies_general.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -39,9 +60,19 @@
     .paper-preview-section { background-color: #fafafa; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
     .paper-preview-section .links a { transition: all 0.3s ease; }
     .paper-preview-section .links a:hover { color: #209cee !important; transform: translateX(5px); }
+    .publication-authors a, .paper-preview-section .links a { color: #1769aa !important; }
+    [style*="color: #7a7a7a"], [style*="color:#7a7a7a"] { color: #5f6368 !important; }
+    [style*="color: #209cee"], [style*="color:#209cee"] { color: #1769aa !important; }
+    .footer .content a { color: #1769aa; text-decoration: underline; }
+    .button.is-info { background-color: #1769aa; color: #fff; }
+    @media (max-width: 768px) {
+      .paper-preview-section { padding: 1.25rem; }
+      .paper-preview-section .column { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+    }
   </style>
 </head>
 <body>
+<main>
 
 <section class="hero">
   <div class="hero-body">
@@ -72,7 +103,7 @@
                   </a>
                 </span>
 <span class="link-block">
-                  <a href="#" class="external-link button is-normal is-rounded is-dark" disabled style="pointer-events: none; opacity: 0.5;">
+                  <a class="external-link button is-normal is-rounded is-dark" aria-disabled="true" tabindex="-1" style="pointer-events: none; background-color: #6b6b6b; color: #fff;">
                     <span class="icon"><i class="fab fa-github"></i></span>
                     <span>Code (coming soon)</span>
                   </a>
@@ -136,21 +167,21 @@ We introduce AirLetters, a new video dataset consisting of real-world videos of 
 <p>We focus on manual articulations of each letter of the Latin alphabet as well as numeric digits. This amounts to 36 primary gesture classes, for which recognition requires temporal and spatial analysis of the video. The dataset also includes two contrast classes designed to refine the sensitivity and specificity of recognition systems trained on our dataset. The “Doing Nothing” class includes videos of individuals in non-active states, such as sitting or standing still, to represent periods of inactivity within human-computer interactions, and the “Doing Other Things” class consists of clips capturing miscellaneous, non-communicative movements such as adjusting position or random hand movements.</p>
 
 <div class="content has-text-justified">
-  <img src="./assets/img/airletters/air-letter-crowd-workers.jpg" style="max-width: 70%; margin: 0 auto;">
+  <img src="./assets/img/airletters/air-letter-crowd-workers.jpg" alt="Participants and environments represented in the AirLetters dataset" style="max-width: 70%; margin: 0 auto;">
   <p>Figure: <b>Diversity in our Dataset.</b> Each of the images is taken from a randomly sampled video from our dataset. Our dataset has a large variance in the appearance of subjects, background, occlusion, and lighting conditions in the videos.</p>
 </div>
 
 <p>Our dataset has videos with precise articulated motion across many different frames instead of many other dataset which only need 1 frame or 2-4 frames to understand the video.</p>
 
 <div class="content has-text-justified">
-  <img src="./assets/img/airletters/variation.png" style="max-width: 70%; margin: 0 auto;">
+  <img src="./assets/img/airletters/variation.png" alt="Examples of inter-class similarity and intra-class variation in AirLetters" style="max-width: 70%; margin: 0 auto;">
   <p>Figure: <b>Challenges due to inter-class similarities and intra-class diversity.</b> We show some examples of drawing the letter “B” and the digit of “3”, where differentiating both of these classes also requires understanding depth and velocity of relative motion to understand if the individual intended to draw a vertical line (for “B”) or only meant to place their hands in position (for “3”). Underneath, we show examples of variability in drawing the letter “Y”. For example, in one way version of drawing the letter “Y”, only the last few frames show a stroke that distinguishes it from the letter “X”.</p>
 </div>
 
 <p>Choosing a few key frames in our dataset does not help in understanding the video, and the entire video needs to be considered to understand the motion.</p>
 
 <div class="content has-text-justified">
-  <img src="./assets/img/airletters/scaling.png" style="max-width: 70%; margin: 0 auto;">
+  <img src="./assets/img/airletters/scaling.png" alt="AirLetters model performance as the number of training frames increases" style="max-width: 70%; margin: 0 auto;">
   <p>Figure: <b>Scaling Training Frames.</b> Performance of models across different numbers of training frames. The Pareto Frontier is represented by a black curve. Note that this dataset requires models to attend through the entire video to perform well, and increasing the number of frames that models attend to significantly increases their performance.</p>
 </div>
 
@@ -430,7 +461,7 @@ We introduce AirLetters, a new video dataset consisting of real-world videos of 
 
   #leaderboard-table b {
     font-weight: bold;
-    color: #209cee;
+    color: #1769aa;
   }
 
   #leaderboard-table u {
@@ -503,7 +534,7 @@ We introduce AirLetters, a new video dataset consisting of real-world videos of 
                 <i class="fas fa-quote-right" style="margin-right: 0.5rem;"></i>
                 BibTeX
               </a>
-              <a href="#" style="color: #7a7a7a; text-decoration: none; display: flex; align-items: center; pointer-events: none;">
+              <a aria-disabled="true" tabindex="-1" style="color: #5f6368; text-decoration: none; display: flex; align-items: center; pointer-events: none;">
                 <i class="fab fa-github" style="margin-right: 0.5rem;"></i>
                 Code
               </a>
@@ -537,7 +568,7 @@ address="Cham",
 pages="1--32",
 isbn="978-3-031-91578-9"
 }</code></pre>
-  <button class="button is-small is-dark" onclick="copyCitation()" style="position: absolute; top: 10px; right: 10px;">
+  <button class="button is-small is-dark" onclick="copyCitation()" aria-label="Copy citation" style="position: absolute; top: 10px; right: 10px;">
     <span class="icon">
       <i class="fas fa-copy"></i>
     </span>
@@ -553,11 +584,12 @@ isbn="978-3-031-91578-9"
     </div>
   </div>
 </section>
+</main>
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
-      <a class="icon-link" href="https://link.springer.com/content/pdf/10.1007/978-3-031-91578-9_1.pdf"><i class="fas fa-file-pdf"></i></a>
-      <a class="icon-link" href="https://github.com/Rishit-dagli" class="external-link"><i class="fab fa-github"></i></a>
+      <a class="icon-link" href="https://link.springer.com/content/pdf/10.1007/978-3-031-91578-9_1.pdf" aria-label="AirLetters paper PDF"><i class="fas fa-file-pdf"></i></a>
+      <a class="icon-link external-link" href="https://github.com/Rishit-dagli" aria-label="Rishit Dagli on GitHub"><i class="fab fa-github"></i></a>
     </div>
     <div class="columns is-centered">
       <div class="column is-8">
