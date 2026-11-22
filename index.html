@@ -43,6 +43,9 @@
   <link rel="stylesheet" href="./assets/css/bulma-slider.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./assets/css/nerfies_general.css">
+  <link rel="stylesheet" href="./assets/css/airletters-interactive.css">
+  <script defer src="./assets/js/airletters-media.js"></script>
+  <script defer src="./assets/js/airletters-charts.js" data-scaling="./assets/data/airletters_scaling.json"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./assets/js/fontawesome.all.min.js"></script>
   <script src="./assets/js/bulma-carousel.min.js"></script>
@@ -55,8 +58,6 @@
     th, td { padding: 12px; text-align: left; }
     th { background-color: #f5f5f5; font-weight: 600; border-bottom: 2px solid #ddd; }
     tr:hover { background-color: #f0f0f0; }
-    .section-header { background-color: #e0e0e0; font-weight: bold; border-bottom: 1px solid #ddd; border-top: 1px solid #ddd; }
-    .subsection { padding-left: 24px; }
     .paper-preview-section { background-color: #fafafa; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
     .paper-preview-section .links a { transition: all 0.3s ease; }
     .paper-preview-section .links a:hover { color: #209cee !important; transform: translateX(5px); }
@@ -130,10 +131,15 @@
         <span class="dnerf">AirLetters</span> is a new video dataset consisting of real-world videos of human-generated, articulated motions.
       </p>
     </div>
-    <video poster="" id="steve" autoplay="" muted="" loop="" playsinline="" style="margin: 2rem auto 0; display: block; max-width: 100%; height: auto;">
-      <source src="./assets/img/airletters/con_video.mp4" type="video/mp4"></source>
-    </video>
   </div>
+</div>
+
+<div class="al-viewer" id="airletters-viewer" data-src="./assets/data/airletters_gallery.json" aria-label="AirLetters examples">
+  <div class="al-body"><div class="al-skeleton"></div></div>
+  <noscript>
+    <style>.al-body { display: none; }</style>
+    <video controls muted playsinline preload="none" poster="./assets/img/airletters/posters/con_video.webp" src="./assets/img/airletters/clips/con_video_720p.mp4" style="display: block; width: 100%; height: auto;"></video>
+  </noscript>
 </div>
 
 <div class="columns is-centered has-text-centered">
@@ -149,100 +155,93 @@ We introduce AirLetters, a new video dataset consisting of real-world videos of 
 
 <h2 id="motivation">Motivation</h2>
 
-<ul>
-  <li>We highlight a significant gap in current end-to-end video understanding and activity recognition methods: all models, especially large vision language models, perform well below human evaluation results. Human evaluation achieves near-perfect accuracy, while the task is challenging for all tested models. Unlike existing video datasets, accurate video understanding on our dataset requires detailed understanding of motion in the video and the integration of long-range temporal information across the entire video.</li>
-  <li>This dataset requires models to attend through the entire video to perform well, and increasing the number of frames that models attend to significantly increases their performance.</li>
-  <li>We show that classes such as the digits “0”, “1”, and “2” are particularly challenging, as they are easily confused with each other. In contrast, the contrast classes “Doing Nothing” and “Doing Other Things”, are more easily recognized which demonstrates the challenging nature of understanding precise motions for video understanding models.</li>
+<ul class="al-chips" aria-label="Motivation">
+  <li class="al-chip"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><span>All models fall well below humans: <strong>71.20%</strong> vs. <strong>96.67%</strong></span></li>
+  <li class="al-chip"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 9V7c0-1.1-.9-2-2-2h-3c0-1.66-1.34-3-3-3S9 3.34 9 5H6c-1.1 0-2 .9-2 2v2c-1.66 0-3 1.34-3 3s1.34 3 3 3v4c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4c1.66 0 3-1.34 3-3s-1.34-3-3-3zM7.5 11.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5S9.83 13 9 13s-1.5-.67-1.5-1.5zM16 17H8v-2h8v2zm-1-4c-.83 0-1.5-.67-1.5-1.5S14.17 10 15 10s1.5.67 1.5 1.5S15.83 13 15 13z"/></svg><span>Vision-language models score <strong>under 8%</strong></span></li>
+  <li class="al-chip"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"/></svg><span>Needs <strong>fine motion</strong> and <strong>long-range</strong> temporal information</span></li>
+  <li class="al-chip"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"/></svg><span>More frames, <strong>much higher</strong> accuracy</span></li>
+  <li class="al-chip"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.01 14H2v2h7.01v3L13 15l-3.99-4v3zm5.98-1v-3H22V8h-7.01V5L11 9l3.99 4z"/></svg><span>Digits <strong>0, 1 and 2</strong> are easily confused</span></li>
+  <li class="al-chip"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg><span>Contrast classes are <strong>easy</strong> to recognize</span></li>
 </ul>
 
 <h2 id="contents">Dataset Contents</h2>
 
-<p>We focus on manual articulations of each letter of the Latin alphabet as well as numeric digits. This amounts to 36 primary gesture classes, for which recognition requires temporal and spatial analysis of the video. The dataset also includes two contrast classes designed to refine the sensitivity and specificity of recognition systems trained on our dataset. The “Doing Nothing” class includes videos of individuals in non-active states, such as sitting or standing still, to represent periods of inactivity within human-computer interactions, and the “Doing Other Things” class consists of clips capturing miscellaneous, non-communicative movements such as adjusting position or random hand movements.</p>
+<p class="al-chips-label">36 primary classes</p>
+<ul class="al-glyphs" aria-label="36 primary classes: the letters A to Z and the digits 0 to 9">
+  <li class="al-g">A</li>
+  <li class="al-g">B</li>
+  <li class="al-g">C</li>
+  <li class="al-g">D</li>
+  <li class="al-g">E</li>
+  <li class="al-g">F</li>
+  <li class="al-g">G</li>
+  <li class="al-g">H</li>
+  <li class="al-g">I</li>
+  <li class="al-g">J</li>
+  <li class="al-g">K</li>
+  <li class="al-g">L</li>
+  <li class="al-g">M</li>
+  <li class="al-g">N</li>
+  <li class="al-g">O</li>
+  <li class="al-g">P</li>
+  <li class="al-g">Q</li>
+  <li class="al-g">R</li>
+  <li class="al-g">S</li>
+  <li class="al-g">T</li>
+  <li class="al-g">U</li>
+  <li class="al-g">V</li>
+  <li class="al-g">W</li>
+  <li class="al-g">X</li>
+  <li class="al-g">Y</li>
+  <li class="al-g">Z</li>
+  <li class="al-g is-digit">0</li>
+  <li class="al-g is-digit">1</li>
+  <li class="al-g is-digit">2</li>
+  <li class="al-g is-digit">3</li>
+  <li class="al-g is-digit">4</li>
+  <li class="al-g is-digit">5</li>
+  <li class="al-g is-digit">6</li>
+  <li class="al-g is-digit">7</li>
+  <li class="al-g is-digit">8</li>
+  <li class="al-g is-digit">9</li>
+</ul>
 
-<div class="content has-text-justified">
-  <img src="./assets/img/airletters/air-letter-crowd-workers.jpg" alt="Participants and environments represented in the AirLetters dataset" style="max-width: 70%; margin: 0 auto;">
-  <p>Figure: <b>Diversity in our Dataset.</b> Each of the images is taken from a randomly sampled video from our dataset. Our dataset has a large variance in the appearance of subjects, background, occlusion, and lighting conditions in the videos.</p>
-</div>
+<p class="al-chips-label">2 contrast classes</p>
+<ul class="al-chips" aria-label="Contrast classes">
+  <li class="al-chip is-plain"><span><strong>Doing Nothing</strong> · sitting or standing still</span></li>
+  <li class="al-chip is-plain"><span><strong>Doing Other Things</strong> · adjusting position, random hand movements</span></li>
+</ul>
 
 <p>Our dataset has videos with precise articulated motion across many different frames instead of many other dataset which only need 1 frame or 2-4 frames to understand the video.</p>
 
-<div class="content has-text-justified">
-  <img src="./assets/img/airletters/variation.png" alt="Examples of inter-class similarity and intra-class variation in AirLetters" style="max-width: 70%; margin: 0 auto;">
-  <p>Figure: <b>Challenges due to inter-class similarities and intra-class diversity.</b> We show some examples of drawing the letter “B” and the digit of “3”, where differentiating both of these classes also requires understanding depth and velocity of relative motion to understand if the individual intended to draw a vertical line (for “B”) or only meant to place their hands in position (for “3”). Underneath, we show examples of variability in drawing the letter “Y”. For example, in one way version of drawing the letter “Y”, only the last few frames show a stroke that distinguishes it from the letter “X”.</p>
-</div>
-
 <p>Choosing a few key frames in our dataset does not help in understanding the video, and the entire video needs to be considered to understand the motion.</p>
 
-<div class="content has-text-justified">
-  <img src="./assets/img/airletters/scaling.png" alt="AirLetters model performance as the number of training frames increases" style="max-width: 70%; margin: 0 auto;">
-  <p>Figure: <b>Scaling Training Frames.</b> Performance of models across different numbers of training frames. The Pareto Frontier is represented by a black curve. Note that this dataset requires models to attend through the entire video to perform well, and increasing the number of frames that models attend to significantly increases their performance.</p>
+<div class="al-chart-card">
+  <div class="al-chart-head">
+    <span class="al-chart-title">Scaling training frames: top-1 accuracy (%)</span>
+    <span class="al-chart-hint"><span class="al-on-hover">Hover for exact values · click a legend entry to show or hide a model</span><span class="al-on-touch">Tap the chart for exact values · tap a legend entry to show or hide a model</span></span>
+  </div>
+  <div class="al-chart-box" data-al-chart="scaling"><canvas role="img" aria-label="Line chart of top-1 accuracy against the number of training frames (1, 8, 16, 24, 32 and 48) for six video models, with the Pareto frontier"></canvas></div>
+  <p class="al-chart-caption"><b>Scaling Training Frames.</b> Performance of models across different numbers of training frames. The Pareto Frontier is represented by a black curve. Note that this dataset requires models to attend through the entire video to perform well, and increasing the number of frames that models attend to significantly increases their performance.</p>
 </div>
 
 <h2 id="stats">Dataset Statistics</h2>
 
-<table>
-    <thead>
-        <tr>
-            <th>Statistic</th>
-            <th>Value</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!-- Total Statistics -->
-        <tr class="section-header">
-            <td colspan="2">Total Statistics</td>
-        </tr>
-        <tr>
-<td class="subsection">Videos</td>
-<td>161,652</td>
-</tr>
-<tr>
-<td class="subsection" style="padding-left: 36px;">Training Split</td>
-<td>128,745</td>
-</tr>
-<tr>
-<td class="subsection" style="padding-left: 36px;">Validation Split</td>
-<td>16,480</td>
-</tr>
-<tr>
-<td class="subsection" style="padding-left: 36px;">Test Split</td>
-<td>16,427</td>
-</tr>
-        <tr>
-<td class="subsection">Classes</td>
-<td>38</td>
-</tr>
-        <tr>
-<td class="subsection">Actors</td>
-<td>1,781</td>
-</tr>
-        <tr>
-<td class="subsection">Frames</td>
-<td>40,142,100</td>
-</tr>
-        
-        <!-- Median Statistics -->
-        <tr class="section-header">
-            <td colspan="2">Median Statistics (with Standard Deviation)</td>
-        </tr>
-        <tr>
-<td class="subsection">Duration</td>
-<td>2.93 (±0.13)</td>
-</tr>
-        <tr>
-<td class="subsection">FPS</td>
-<td>30.0 (±0.0)</td>
-</tr>
-        <tr>
-<td class="subsection">Videos per Class (×10³)</td>
-<td>4.04 (±1.31)</td>
-</tr>
-        <tr>
-<td class="subsection">Videos per Actor</td>
-<td>40.0 (±99.29)</td>
-</tr>
-    </tbody>
-</table>
+<div class="al-stats">
+  <div class="al-stat"><span class="al-stat-n">161,652</span><span class="al-stat-l">videos</span></div>
+  <div class="al-stat"><span class="al-stat-n">38</span><span class="al-stat-l">classes</span></div>
+  <div class="al-stat"><span class="al-stat-n">1,781</span><span class="al-stat-l">actors</span></div>
+  <div class="al-stat"><span class="al-stat-n">~3 s</span><span class="al-stat-l">clips</span></div>
+</div>
+<ul class="al-chips" aria-label="More dataset statistics">
+  <li class="al-chip is-plain is-neutral"><span><strong>128,745</strong> train</span></li>
+  <li class="al-chip is-plain is-neutral"><span><strong>16,480</strong> validation</span></li>
+  <li class="al-chip is-plain is-neutral"><span><strong>16,427</strong> test</span></li>
+  <li class="al-chip is-plain is-neutral"><span><strong>40,142,100</strong> frames</span></li>
+  <li class="al-chip is-plain is-neutral"><span><strong>30</strong> fps</span></li>
+  <li class="al-chip is-plain is-neutral"><span>Median <strong>4.04k</strong> videos per class</span></li>
+  <li class="al-chip is-plain is-neutral"><span>Median <strong>40</strong> videos per actor</span></li>
+</ul>
 
 <h2 id="leaderboard">Leaderboard</h2>
 
@@ -250,6 +249,16 @@ We introduce AirLetters, a new video dataset consisting of real-world videos of 
   Classification accuracy of image models, video models, and (large) vision language models on <span class="dnerf">AirLetters</span>. Click column headers to sort.
 </p>
 
+<div class="al-chart-card">
+  <div class="al-chart-head">
+    <span class="al-chart-title">Top-1 accuracy on <span class="dnerf">AirLetters</span> (%)</span>
+    <span class="al-chart-hint"><span class="al-on-hover">Hover a bar for the exact value · click a legend entry to show or hide a group</span><span class="al-on-touch">Tap a bar for the exact value · tap a legend entry to show or hide a group</span></span>
+  </div>
+  <div class="al-chart-box is-board" data-al-chart="leaderboard"><canvas role="img" aria-label="Bar chart of top-1 accuracy for image models, video models and vision-language models, with the human baseline of 96.67% as a dashed line"></canvas></div>
+</div>
+
+<details class="al-table-toggle">
+  <summary><span class="al-when-closed">Show the sortable table</span><span class="al-when-open">Hide the table</span></summary>
 <div class="table-container">
   <table id="leaderboard-table" class="table is-striped is-hoverable is-fullwidth">
     <thead>
@@ -361,6 +370,7 @@ We introduce AirLetters, a new video dataset consisting of real-world videos of 
     </tbody>
   </table>
 </div>
+</details>
 
 <p class="has-text-centered mt-2">Overall results of different models on the <span class="dnerf">AirLetters</span> leaderboard. The <b style="color: #209cee;">best-performing model</b> is in-bold. Note that the task is straightforward for humans but challenging for existing models.</p>
 
@@ -492,7 +502,7 @@ We introduce AirLetters, a new video dataset consisting of real-world videos of 
     <div class="paper-preview-section">
       <div class="columns is-vcentered">
         <div class="column is-5" style="padding-right: 2.5rem;">
-          <img src="./assets/img/airletters/paper_preview.png" alt="Paper thumbnail" class="image" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 100%;">
+          <img src="./assets/img/airletters/paper_preview.webp" alt="Paper thumbnail" class="image" width="700" height="1040" loading="lazy" decoding="async" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 100%; height: auto;">
         </div>
         <div class="column is-7" style="padding-left: 3rem;">
           <h2 class="title is-5 mb-2">AirLetters: An Open Video Dataset of Characters Drawn in the Air</h2>

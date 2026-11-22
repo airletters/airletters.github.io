@@ -1,0 +1,13 @@
+{
+  "source": "Figure 'Scaling Training Frames' of the paper (arXiv 2410.02921 source, figures/assets/scaling.pdf): exact marker coordinates read from the vector PDF and mapped through its axis grid lines. The 48-frame values equal Table 'Classification accuracy'; the 1-frame values equal the image-model rows of that table.",
+  "frames": [1, 8, 16, 24, 32, 48],
+  "series": [
+    { "label": "ResNeXt-50 3D", "color": "#6aaed6", "data": [13.87, 24.48, 41.11, 49.19, 60.25, 66.54] },
+    { "label": "ResNeXt-101 3D", "color": "#1f78b4", "data": [13.09, 23.58, 41.20, 50.09, 60.39, 69.74] },
+    { "label": "ResNeXt-152 3D", "color": "#7fbf5a", "data": [13.29, 24.30, 40.31, 51.25, 57.63, 65.77] },
+    { "label": "ResNeXt-200 3D", "color": "#2e8b2e", "data": [11.44, 23.36, 35.74, 42.33, 51.14, 71.20] },
+    { "label": "ResNet-50 + LSTM", "color": "#ef7f7d", "data": [13.87, 28.61, 43.71, 53.29, 56.34, 63.24] },
+    { "label": "ResNet-101 + LSTM", "color": "#d7191c", "data": [13.09, 29.43, 37.39, 47.46, 49.79, 58.45] }
+  ],
+  "frontier": { "label": "Pareto frontier", "data": [13.29, 29.43, 43.71, 53.29, 60.39, 71.20] }
+}

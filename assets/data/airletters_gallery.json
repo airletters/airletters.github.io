@@ -1,0 +1,362 @@
+{
+  "clips": [
+    {
+      "id": "00003797",
+      "kind": "clip",
+      "src": "./assets/img/airletters/clips/00003797.mp4",
+      "poster": "./assets/img/airletters/posters/00003797.webp",
+      "thumb": "./assets/img/airletters/thumbs/00003797.webp",
+      "duration": 2.93,
+      "glyph": "B",
+      "title": "Letter B",
+      "label": "Drawing the letter B in the air",
+      "tag": "B vs. 3",
+      "confused": [
+        "3"
+      ],
+      "why": "Telling B from 3 takes the depth and speed of the motion: did the hand draw a vertical line (B), or only move into position (3)?"
+    },
+    {
+      "id": "00003553",
+      "kind": "clip",
+      "src": "./assets/img/airletters/clips/00003553.mp4",
+      "poster": "./assets/img/airletters/posters/00003553.webp",
+      "thumb": "./assets/img/airletters/thumbs/00003553.webp",
+      "duration": 2.9,
+      "glyph": "3",
+      "title": "Digit 3",
+      "label": "Drawing the digit 3 in the air",
+      "tag": "B vs. 3",
+      "confused": [
+        "B"
+      ],
+      "why": "Without that vertical stroke, a 3 traces the same two bumps as a B. The model has to judge whether the hand drew the line or just moved into place."
+    },
+    {
+      "id": "00009467",
+      "kind": "clip",
+      "src": "./assets/img/airletters/clips/00009467.mp4",
+      "poster": "./assets/img/airletters/posters/00009467.webp",
+      "thumb": "./assets/img/airletters/thumbs/00009467.webp",
+      "duration": 3.0,
+      "glyph": "B",
+      "title": "Letter B",
+      "label": "Drawing the letter B in the air",
+      "tag": "Drawing styles vary",
+      "confused": [
+        "3"
+      ],
+      "why": "The same letter from another person, in a dim room. B and 3 can look quite different depending on how each person draws them."
+    },
+    {
+      "id": "00008744",
+      "kind": "clip",
+      "src": "./assets/img/airletters/clips/00008744.mp4",
+      "poster": "./assets/img/airletters/posters/00008744.webp",
+      "thumb": "./assets/img/airletters/thumbs/00008744.webp",
+      "duration": 2.93,
+      "glyph": "3",
+      "title": "Digit 3",
+      "label": "Drawing the digit 3 in the air",
+      "tag": "Drawing styles vary",
+      "confused": [
+        "B"
+      ],
+      "why": "People draw characters in very different ways, so even a single class covers very different motions."
+    },
+    {
+      "id": "00010278",
+      "kind": "clip",
+      "src": "./assets/img/airletters/clips/00010278.mp4",
+      "poster": "./assets/img/airletters/posters/00010278.webp",
+      "thumb": "./assets/img/airletters/thumbs/00010278.webp",
+      "duration": 2.93,
+      "glyph": "Y",
+      "title": "Letter Y",
+      "label": "Drawing the letter Y in the air",
+      "tag": "X vs. Y",
+      "confused": [
+        "X"
+      ],
+      "why": "In some ways of drawing Y, only the last few frames show the stroke that separates it from X."
+    },
+    {
+      "id": "00000425",
+      "kind": "clip",
+      "src": "./assets/img/airletters/clips/00000425.mp4",
+      "poster": "./assets/img/airletters/posters/00000425.webp",
+      "thumb": "./assets/img/airletters/thumbs/00000425.webp",
+      "duration": 2.97,
+      "glyph": "X",
+      "title": "Letter X",
+      "label": "Drawing the letter X in the air",
+      "tag": "X vs. Y",
+      "confused": [
+        "Y"
+      ],
+      "why": "X and Y can look alike for most of the clip; the deciding stroke may only appear at the very end."
+    },
+    {
+      "id": "00006227",
+      "kind": "clip",
+      "src": "./assets/img/airletters/clips/00006227.mp4",
+      "poster": "./assets/img/airletters/posters/00006227.webp",
+      "thumb": "./assets/img/airletters/thumbs/00006227.webp",
+      "duration": 2.93,
+      "glyph": "Y",
+      "title": "Letter Y",
+      "label": "Drawing the letter Y in the air",
+      "tag": "Drawing styles vary",
+      "confused": [
+        "X"
+      ],
+      "why": "Y is drawn in many different ways, so the model has to follow the whole motion rather than a few key frames."
+    },
+    {
+      "id": "variation",
+      "kind": "figure",
+      "src": "./assets/img/airletters/variation.webp",
+      "full": "./assets/img/airletters/variation.webp",
+      "thumb": "./assets/img/airletters/thumbs/variation.webp",
+      "width": 1565,
+      "height": 1101,
+      "duration": 9,
+      "icon": "figure",
+      "title": "Challenges due to inter-class similarities and intra-class diversity",
+      "label": "",
+      "tag": "Paper figure",
+      "confused": [],
+      "alt": "Examples of inter-class similarity and intra-class variation in AirLetters",
+      "why": "We show some examples of drawing the letter “B” and the digit of “3”, where differentiating both of these classes also requires understanding depth and velocity of relative motion to understand if the individual intended to draw a vertical line (for “B”) or only meant to place their hands in position (for “3”). Underneath, we show examples of variability in drawing the letter “Y”. For example, in one way version of drawing the letter “Y”, only the last few frames show a stroke that distinguishes it from the letter “X”."
+    },
+    {
+      "id": "00008807",
+      "kind": "clip",
+      "src": "./assets/img/airletters/clips/00008807.mp4",
+      "poster": "./assets/img/airletters/posters/00008807.webp",
+      "thumb": "./assets/img/airletters/thumbs/00008807.webp",
+      "duration": 2.97,
+      "glyph": "0",
+      "title": "Digit 0",
+      "label": "Drawing the digit 0 in the air",
+      "tag": "0, 1, 2 and O",
+      "confused": [
+        "O",
+        "1",
+        "2"
+      ],
+      "why": "Digits 0, 1 and 2 are among the hardest classes: models easily confuse them with each other, and 0 with the letter O."
+    },
+    {
+      "id": "00003922",
+      "kind": "clip",
+      "src": "./assets/img/airletters/clips/00003922.mp4",
+      "poster": "./assets/img/airletters/posters/00003922.webp",
+      "thumb": "./assets/img/airletters/thumbs/00003922.webp",
+      "duration": 2.77,
+      "glyph": "O",
+      "title": "Letter O",
+      "label": "Drawing the letter O in the air",
+      "tag": "0 vs. O",
+      "confused": [
+        "0"
+      ],
+      "why": "The letter O and the digit 0 look alike, so models often mistake one for the other."
+    },
+    {
+      "id": "00004092",
+      "kind": "clip",
+      "src": "./assets/img/airletters/clips/00004092.mp4",
+      "poster": "./assets/img/airletters/posters/00004092.webp",
+      "thumb": "./assets/img/airletters/thumbs/00004092.webp",
+      "duration": 2.9,
+      "glyph": "P",
+      "title": "Letter P",
+      "label": "Drawing the letter P in the air",
+      "tag": "P vs. D",
+      "confused": [
+        "D"
+      ],
+      "why": "P and D both combine a vertical stroke with a curve; models often mistake one for the other."
+    },
+    {
+      "id": "00002925",
+      "kind": "clip",
+      "src": "./assets/img/airletters/clips/00002925.mp4",
+      "poster": "./assets/img/airletters/posters/00002925.webp",
+      "thumb": "./assets/img/airletters/thumbs/00002925.webp",
+      "duration": 2.97,
+      "glyph": "D",
+      "title": "Letter D",
+      "label": "Drawing the letter D in the air",
+      "tag": "P vs. D",
+      "confused": [
+        "P"
+      ],
+      "why": "D is often misread as P. Here a bright ceiling light also shines straight into the camera."
+    },
+    {
+      "id": "00006070",
+      "kind": "clip",
+      "src": "./assets/img/airletters/clips/00006070.mp4",
+      "poster": "./assets/img/airletters/posters/00006070.webp",
+      "thumb": "./assets/img/airletters/thumbs/00006070.webp",
+      "duration": 3.0,
+      "glyph": "1",
+      "title": "Digit 1",
+      "label": "Drawing the digit 1 in the air",
+      "tag": "0, 1, 2 and O",
+      "confused": [
+        "0",
+        "2"
+      ],
+      "why": "Even a single stroke is hard: 1 is easily confused with 0 and 2."
+    },
+    {
+      "id": "00006571",
+      "kind": "clip",
+      "src": "./assets/img/airletters/clips/00006571.mp4",
+      "poster": "./assets/img/airletters/posters/00006571.webp",
+      "thumb": "./assets/img/airletters/thumbs/00006571.webp",
+      "duration": 2.9,
+      "glyph": "2",
+      "title": "Digit 2",
+      "label": "Drawing the digit 2 in the air",
+      "tag": "0, 1, 2 and O",
+      "confused": [
+        "0",
+        "1"
+      ],
+      "why": "2 is one of the classes models confuse most, mixing it up with 0 and 1."
+    },
+    {
+      "id": "00008061",
+      "kind": "clip",
+      "src": "./assets/img/airletters/clips/00008061.mp4",
+      "poster": "./assets/img/airletters/posters/00008061.webp",
+      "thumb": "./assets/img/airletters/thumbs/00008061.webp",
+      "duration": 2.93,
+      "glyph": "A",
+      "title": "Letter A",
+      "label": "Drawing the letter A in the air",
+      "tag": "Whole-clip motion",
+      "confused": [],
+      "why": "No single frame shows the letter. The model has to integrate the motion over the whole clip."
+    },
+    {
+      "id": "00009860",
+      "kind": "clip",
+      "src": "./assets/img/airletters/clips/00009860.mp4",
+      "poster": "./assets/img/airletters/posters/00009860.webp",
+      "thumb": "./assets/img/airletters/thumbs/00009860.webp",
+      "duration": 2.97,
+      "glyph": "M",
+      "title": "Letter M",
+      "label": "Drawing the letter M in the air",
+      "tag": "Whole-clip motion",
+      "confused": [],
+      "why": "M takes several strokes in about 3 seconds; reading it needs long-range temporal information."
+    },
+    {
+      "id": "00004235",
+      "kind": "clip",
+      "src": "./assets/img/airletters/clips/00004235.mp4",
+      "poster": "./assets/img/airletters/posters/00004235.webp",
+      "thumb": "./assets/img/airletters/thumbs/00004235.webp",
+      "duration": 2.9,
+      "glyph": "S",
+      "title": "Letter S",
+      "label": "Drawing the letter S in the air",
+      "tag": "Lighting",
+      "confused": [],
+      "why": "A bright lamp right behind the person: lighting ranges from dim to overexposed across the dataset."
+    },
+    {
+      "id": "00008155",
+      "kind": "clip",
+      "src": "./assets/img/airletters/clips/00008155.mp4",
+      "poster": "./assets/img/airletters/posters/00008155.webp",
+      "thumb": "./assets/img/airletters/thumbs/00008155.webp",
+      "duration": 2.83,
+      "glyph": "W",
+      "title": "Letter W",
+      "label": "Drawing the letter W in the air",
+      "tag": "Lighting",
+      "confused": [],
+      "why": "A very dark room, where the hand is barely visible: one of many real-world recording conditions."
+    },
+    {
+      "id": "00004245",
+      "kind": "clip",
+      "src": "./assets/img/airletters/clips/00004245.mp4",
+      "poster": "./assets/img/airletters/posters/00004245.webp",
+      "thumb": "./assets/img/airletters/thumbs/00004245.webp",
+      "duration": 2.87,
+      "glyph": "Z",
+      "title": "Letter Z",
+      "label": "Drawing the letter Z in the air",
+      "tag": "Motion blur",
+      "confused": [],
+      "why": "Large, fast strokes blur the hand, so the motion has to be read through motion blur."
+    },
+    {
+      "id": "crowd",
+      "kind": "figure",
+      "src": "./assets/img/airletters/air-letter-crowd-workers.webp",
+      "full": "./assets/img/airletters/air-letter-crowd-workers.webp",
+      "thumb": "./assets/img/airletters/thumbs/air-letter-crowd-workers.webp",
+      "width": 1135,
+      "height": 856,
+      "duration": 7,
+      "icon": "figure",
+      "title": "Diversity in our Dataset",
+      "label": "",
+      "tag": "Paper figure",
+      "confused": [],
+      "alt": "Participants and environments represented in the AirLetters dataset",
+      "why": "Each of the images is taken from a randomly sampled video from our dataset. Our dataset has a large variance in the appearance of subjects, background, occlusion, and lighting conditions in the videos."
+    },
+    {
+      "id": "con_video",
+      "kind": "teaser",
+      "src": "./assets/img/airletters/clips/con_video_720p.mp4",
+      "poster": "./assets/img/airletters/posters/con_video.webp",
+      "thumb": "./assets/img/airletters/thumbs/con_video.webp",
+      "duration": 15.0,
+      "icon": "grid",
+      "title": "AirLetters at a glance",
+      "label": "Teaser video",
+      "tag": "Teaser",
+      "confused": [],
+      "why": "A mosaic of clips from the 1,781 crowd workers, each recording themselves in front of their own camera."
+    },
+    {
+      "id": "00007983",
+      "kind": "contrast",
+      "src": "./assets/img/airletters/clips/00007983.mp4",
+      "poster": "./assets/img/airletters/posters/00007983.webp",
+      "thumb": "./assets/img/airletters/thumbs/00007983.webp",
+      "duration": 3.13,
+      "icon": "still",
+      "title": "Doing nothing",
+      "label": "Doing nothing",
+      "tag": "Contrast class",
+      "confused": [],
+      "why": "Sitting or standing still. Models recognize the contrast classes far more easily than letters and digits."
+    },
+    {
+      "id": "00003902",
+      "kind": "contrast",
+      "src": "./assets/img/airletters/clips/00003902.mp4",
+      "poster": "./assets/img/airletters/posters/00003902.webp",
+      "thumb": "./assets/img/airletters/thumbs/00003902.webp",
+      "duration": 2.87,
+      "icon": "wave",
+      "title": "Doing other things",
+      "label": "Doing Other Things",
+      "tag": "Contrast class",
+      "confused": [],
+      "why": "Miscellaneous movements such as adjusting position or random hand movements, so a model cannot treat every motion as a character."
+    }
+  ]
+}
